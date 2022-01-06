@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Gym M</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS v5.0.2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+
+    <link rel="stylesheet" href="../css/vertical_nav.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/cart.css" />
+    <link rel="stylesheet" href="../css/footer.css" />
+
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+</head>
+
+<body>
+    <!-- Vertical navbar -->
+    <div class="vertical-nav bg-white fixed-top" id="sidebar">
+        <div class="py-4 px-3 mb-4 bg-light">
+            <div class="d-flex">
+                <a href="../index.html">
+                    <img src="../../photos/logo.jpg" alt="logo" width="65"
+                        class="rounded-circle img-thumbnail shadow-sm" />
+                </a>
+                <div class="media-body ms-1">
+                    <h4 class="m-0">Gym M Shop</h4>
+                    <p class="font-weight-light text-muted mb-0">
+                        The best on the market
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <p class="text-gray font-weight-bold text-uppercase px-3 small pb-4 mb-0">
+            Main menu
+        </p>
+
+        <ul class="nav flex-column bg-white mb-0">
+            <li class="nav-item">
+                <a href="index.html" class="nav-link text-dark font-italic">
+                    <i class="fa fa-home fa-fw"></i> Home
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="shop.html" class="nav-link text-dark font-italic ">
+                    <i class="fa fa-credit-card fa-fw"></i> Shop
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="event.html" class="nav-link text-dark font-italic">
+                    <i class="fa fa-gift fa-fw"></i> Special Sale
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="contact.html" class="nav-link text-dark font-italic">
+                    <i class="fa fa-envelope fa-fw"></i> Contact
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="cart.html" class="nav-link text-dark font-italic bg-light">
+                    <i class="fa fa-shopping-cart fa-fw"></i> Cart
+                </a>
+            </li>
+        </ul>
+
+        <p class="text-gray font-weight-bold text-uppercase px-3 small py-4 mb-0">
+            Social networks
+        </p>
+
+        <ul class="nav flex-column bg-white mb-0">
+            <li class="nav-item">
+                <a href="https://www.facebook.com/" class="nav-link text-dark font-italic">
+                    <i class="fa fa-facebook fa-fw"> </i> Facebook
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="https://www.instagram.com/" class="nav-link text-dark font-italic">
+                    <i class="fa fa-instagram fa-fw"></i> Instagram
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="https://twitter.com/" class="nav-link text-dark font-italic">
+                    <i class="fa fa-twitter fa-fw"></i> Twitter
+                </a>
+            </li>
+            <li class="nav-item mb-3">
+                <a href="https://github.com/MiroslavGit" class="nav-link text-dark font-italic">
+                    <i class="fa fa-github fa-fw"></i> Github
+                </a>
+            </li>
+        </ul>
+
+        <div class="py-5 px-3 bg-light">
+            <div class="text-center">
+                <img src="../../photos/author.jpg" alt="logo" width="200"
+                    class="rounded-circle img-thumbnail shadow-sm" />
+                <div class="media-body ms-1">
+                    <h4 class="m-0">Author</h4>
+                    <p class="font-weight-light text-muted mb-0">Miroslav Hanisko</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End vertical navbar -->
+
+    <!-- Page content  -->
+    <div class="page-content" id="content">
+        <!-- Menu button -->
+        <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill px-4 position-fixed m-5">
+            <i class="fa fa-bars fa-fw"></i><small class="text-uppercase font-weight-bold">Menu</small>
+        </button>
+
+        <!-- Cart -->
+        <div class="container cart">
+            <div class="container table pt-5 w-75 ">
+                <div class="text-dark pb-4 bg-warning rounded-3 pt-4 ps-5">
+                    <div class="divTableCol pe-4">Product</div>
+                    <div class="divTableCol ps-5 pe-5">Authorized</div>
+                    <div class="divTableCol ps-5 pe-5">Quantity</div>
+                    <div class="divTableCol ps-5 pe-5">Price</div>
+                    <div class="divTableCol ps-4 pe-4">Total</div>
+                    <div class="divTableCol ps-4 ">Actions</div>
+                </div>
+
+                <div class="table">
+                    <div class="divTableCol">
+                        <div>
+                            <a class="pull-left" href="shop.html"> <img src="../../photos/products/product1.webp"
+                                    class="img-fluid" style="width: 92px; height: 72px; margin-left: 0" /></a>
+                            <div class="media-body">
+                                <h4 class="media-heading">Protein</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="divTableCol"><strong>Pending</strong></div>
+                    <div class="divTableCol ps-5 pe-5">
+                        <div class="ps-5 pe-5">
+                            <div class="ps-3">
+                                1
+                            </div>
+                        </div>
+                    </div>
+                    <div class="divTableCol"><strong>€56.67</strong></div>
+                    <div class="divTableCol"><strong>€56.67</strong></div>
+                    <div class="divTableCol">
+                        <a href="" class="text-decoration-none">
+                            <div class="my_button text-uppercase text-warning bg-danger">
+                                <span>Delete</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="table ">
+                    <div class="divTableCol">
+                        <div>
+                            <a class="pull-left" href="shop.html"> <img src="../../photos/products/product3.webp"
+                                    class="img-fluid" style="width: 92px; height: 72px; margin-left: 0" /></a>
+                            <div class="media-body">
+                                <h4 class="media-heading">Vitamins</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="divTableCol"><strong>Pending</strong></div>
+                    <div class="divTableCol ps-5 pe-5">
+                        <div class="ps-5 pe-5">
+                            <div class="ps-3">
+                                1
+                            </div>
+                        </div>
+                    </div>
+                    <div class="divTableCol"><strong>€56.67</strong></div>
+                    <div class="divTableCol"><strong>€56.67</strong></div>
+                    <div class="divTableCol">
+                        <a href="" class="text-decoration-none">
+                            <div class="my_button  text-uppercase text-warning bg-danger">
+                                <span>Delete</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="table">
+                    <div class="divTableCol">
+                        <div>
+                            <a class="pull-left" href="shop.html"> <img src="../../photos/products/product2.webp"
+                                    class="img-fluid" style="width: 92px; height: 72px; margin-left: 0" /></a>
+                            <div class="media-body">
+                                <h4 class="media-heading">Butter</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="divTableCol"><strong>Pending</strong></div>
+                    <div class="divTableCol ps-5 pe-5">
+                        <div class="ps-5 pe-5">
+                            <div class="ps-3">
+                                1
+                            </div>
+                        </div>
+                    </div>
+                    <div class="divTableCol"><strong>€56.67</strong></div>
+                    <div class="divTableCol"><strong>€56.67</strong></div>
+                    <div class="divTableCol">
+                        <a href="" class="text-decoration-none">
+                            <div class="my_button text-uppercase text-warning bg-danger">
+                                <span>Delete</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="text-center">
+                    <div>
+                        <h3>Total</h3>
+                    </div>
+                    <div>
+                        <h3><strong>€570.00</strong></h3>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+        <!-- footer -->
+        <footer class="bg-dark py-5 mt-5">
+            <div class="container">
+                <div class="row text-white">
+                    <div class="col-md-6 col-lg-3">
+                        <h5 class="fw-light text-uppercase">About</h5>
+                        <p class="text-white text-muted mt-3">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum mollitia quisquam veniam
+                            odit cupiditate, ullam aut voluptas velit dolor ipsam?
+                        </p>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <h5 class="fw-light text-uppercase">Links</h5>
+                        <ul class="list-unstyled">
+                            <li class="my-3">
+                                <a href="index.html" class="text-white text-decoration-none text-muted">
+                                    <i class="fa fa-chevron-right me-1"></i> Home
+                                </a>
+                            </li>
+                            <li class="my-3">
+                                <a href="shop.html" class="text-white text-decoration-none text-muted">
+                                    <i class="fa fa-chevron-right me-1"></i> Shop
+                                </a>
+                            </li>
+                            <li class="my-3">
+                                <a href="event.html" class="text-white text-decoration-none text-muted ">
+                                    <i class="fa fa-chevron-right me-1"></i> Special sale
+                                </a>
+                            </li>
+                            <li class="my-3">
+                                <a href="contact.html" class="text-white text-decoration-none text-muted">
+                                    <i class="fa fa-chevron-right me-1"></i> Contact
+                                </a>
+                            </li>
+                            <li class="my-3">
+                                <a href="cart.html" class="text-white text-decoration-none text-muted">
+                                    <i class="fa fa-chevron-right me-1"></i> Cart
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <h5 class="fw-light mb-3 text-uppercase">Contact Us</h5>
+                        <div class="d-flex justify-content-start text-muted">
+                            <span class="me-3">
+                                <i class="fa fa-map"></i>
+                            </span>
+                            <span class="fw-light">
+                                Spišská Nová Ves, Slovensko, 00513, Europe
+                            </span>
+                        </div>
+                        <div class="
+                  d-flex
+                  justify-content-start
+                  align-items-start
+                  my-2
+                  text-muted
+                ">
+                            <span class="me-3">
+                                <i class="fa fa-envelope"></i>
+                            </span>
+                            <span class="fw-light"> gymm.support@gmail.com </span>
+                        </div>
+                        <div class="
+                  d-flex
+                  justify-content-start
+                  align-items-start
+                  my-2
+                  text-muted
+                ">
+                            <span class="me-3">
+                                <i class="fa fa-phone"></i>
+                            </span>
+                            <span class="fw-light"> +9786 6776 236 </span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-3">
+                        <h5 class="fw-light mb-3 text-uppercase">Follow Us</h5>
+                        <div>
+                            <ul class="list-unstyled d-flex">
+                                <li>
+                                    <a href="https://www.facebook.com/" class="
+                        text-white text-decoration-none text-muted
+                        fs-4
+                        me-4
+                      ">
+                                        <i class="fa fa-facebook-f"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://twitter.com/" class="
+                        text-white text-decoration-none text-muted
+                        fs-4
+                        me-4
+                      ">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://www.instagram.com/" class="
+                        text-white text-decoration-none text-muted
+                        fs-4
+                        me-4
+                      ">
+                                        <i class="fa fa-instagram"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/MiroslavGit"
+                                        class="text-white text-decoration-none text-muted fs-4">
+                                        <i class="fa fa-github"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- end of footer -->
+    </div>
+    <!-- End page content -->
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js "
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p "
+        crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js "
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF "
+        crossorigin="anonymous "></script>
+    <!-- jquery -->
+    <script src="../../jquery-3.6.0.js "></script>
+    <!-- isotope js -->
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js "></script>
+    <!-- custom js -->
+    <script src="../js/csript.js "></script>
+</body>
+
+</html>

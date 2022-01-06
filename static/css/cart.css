@@ -1,0 +1,13 @@
+.divTableCol {
+	display: table-cell;
+	padding: 3px 20px; 
+    font-weight: bold;
+}
+
+.my_button{
+    margin-top: -50px !important;
+}
+.cart{
+    background-color: rgba(173, 172, 172, 0.26);
+    padding-top: 5px;
+}
