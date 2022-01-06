@@ -11,7 +11,7 @@ include("data.php");
 ?>
 
 <head>
-    <link rel="stylesheet" href="../css/cart.css" />
+    <link rel="stylesheet" href="../css/cart.css?<?php echo time(); ?>" />
 </head>
 
 <!-- Page content  -->
@@ -51,7 +51,7 @@ include("data.php");
                     echo '<div class="media-body">';
                     echo "<h6 class='media-heading'>$names[$product]</h6>";
                     echo '</div> </div> </div>';
-                    echo '<div class="divTableCol"><strong>Pending</strong></div>';
+                    echo '<div class="divTableCol"><strong>Available</strong></div>';
                     echo '<div class="divTableCol ps-5 pe-5">';
                     echo '<div class="ps-5 pe-5">';
                     echo '<div class="ps-3">';
@@ -70,15 +70,20 @@ include("data.php");
             }
             ?>
 
-            <div class="text-center pt-4 pb-5 ">
-                <div>
-                    <h3>Total</h3>
+            <div class="text-center pt-4 pb-5 container">
+                <div class="">
+                    <div class="d-flex">
+                        <div class="p-3 bg-warning rounded-1">
+                            <?php
+                            echo "<h3 class='d-flex'>Total:&nbsp&nbsp&nbsp <strong> $total € </strong></h3>";
+                            ?>
+                        </div>
+                        <div class="my_button mt-3 text-uppercase text-warning">
+                            <a href="checkout.php" class="text-decoration-none text-warning"><span>Continue</span> </a>
+                        </div>
+                    </div>
                 </div>
-                <div class=" text-center bg-warning w-25 mx-auto rounded-pill">
-                    <?php
-                    echo "<h3 class='pb-2 ' ><strong> $total € </strong></h3>";
-                    ?>
-                </div>
+
             </div>
 
 

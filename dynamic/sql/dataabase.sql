@@ -48,3 +48,10 @@ create table password (
 );
 
 insert into password (id, password)  values (1, 'protein');
+
+create table orders (
+	id INT (11) NOT NULL auto_increment,
+	price_€ int (11),
+	date TIMESTAMP,
+	primary key(id)
+);

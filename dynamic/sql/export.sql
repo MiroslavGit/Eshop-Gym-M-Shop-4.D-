@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hostiteľ: 127.0.0.1
--- Čas generovania: Št 06.Jan 2022, 15:09
+-- Čas generovania: Št 06.Jan 2022, 18:05
 -- Verzia serveru: 10.4.22-MariaDB
 -- Verzia PHP: 8.1.1
 
@@ -75,6 +75,25 @@ INSERT INTO `employees` (`id`, `first_name`, `last_name`, `age`, `gender`, `heig
 -- --------------------------------------------------------
 
 --
+-- Štruktúra tabuľky pre tabuľku `orders`
+--
+
+CREATE TABLE `orders` (
+  `id` int(11) NOT NULL,
+  `price_€` int(11) DEFAULT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Sťahujem dáta pre tabuľku `orders`
+--
+
+INSERT INTO `orders` (`id`, `price_€`, `date`) VALUES
+(1, 98, '2022-01-06 17:05:03');
+
+-- --------------------------------------------------------
+
+--
 -- Štruktúra tabuľky pre tabuľku `password`
 --
 
@@ -101,6 +120,12 @@ ALTER TABLE `employees`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexy pre tabuľku `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexy pre tabuľku `password`
 --
 ALTER TABLE `password`
@@ -115,6 +140,12 @@ ALTER TABLE `password`
 --
 ALTER TABLE `employees`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT pre tabuľku `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pre tabuľku `password`
