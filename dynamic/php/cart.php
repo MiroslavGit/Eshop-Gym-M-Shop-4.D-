@@ -2,6 +2,7 @@
 
 session_start();
 
+/* Exis session  */
 if (isset($_POST['remove'])) {
     unset($_SESSION['cart']);
 }
@@ -39,6 +40,7 @@ include("data.php");
                 $total = 0;
 
             ?>
+            <!-- Print a products which has been choosed by a user -->
             <?php
                 echo "<ol>";
                 foreach ($_SESSION['cart'] as $key  => $product) {
@@ -61,6 +63,7 @@ include("data.php");
                     echo '<div class="divTableCol pt-5">';
                     echo '</div> </div>';
                     echo "</li>";
+                    /* Couting total price */
                     $total += $prices[$product];
                 }
                 echo "</ol>";

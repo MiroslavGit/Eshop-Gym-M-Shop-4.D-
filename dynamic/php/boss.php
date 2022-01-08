@@ -51,6 +51,7 @@ while ($row = mysqli_fetch_array($data)) {
                         </tr>
                     </thead>
                     <tbody>
+                        <!-- Print a table of employees from the database  -->
                         <?php
                         foreach ($data as $value => $one) {
                             echo '<tr>';

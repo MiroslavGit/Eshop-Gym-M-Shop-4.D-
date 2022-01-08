@@ -29,6 +29,7 @@ include("connect.php");
                 <div class="col-md-5 col-lg-4 order-md-last">
                     <h4 class="d-flex justify-content-between align-items-center mb-3">
                         <span class="text-warning">Your cart</span>
+                        <!-- Counts the number of products in the cart -->
                         <?php
                         if (isset($_SESSION['cart'])) {
                             $poc = count($_SESSION['cart']);
@@ -39,7 +40,7 @@ include("connect.php");
                         ?>
                     </h4>
                     <ul class="list-group mb-3">
-
+                        <!-- Print all products from the cart -->
                         <?php
                         if (isset($_SESSION['cart'])) {
                             $total = 0;
@@ -55,20 +56,43 @@ include("connect.php");
                                 $total += $prices[$product];
                             }
                         }
+
+
+                        /*  Using promo code  */
+                        $totalPromo = $total;
+                        $sqlconn = mysqli_query($conn, "SELECT * FROM coupons");
+
+                        while ($row = mysqli_fetch_array($sqlconn)) {
+                            $codes[] = $row['coupnon_name'];
+                        }
+
+                        if (isset($_POST['reedem'])) {
+                            $userPromoCode = $_POST['userPromoCode'];
+
+                            if (in_array($userPromoCode, $codes)) {
+                                $totalPromo = 80 * $total / 100;
+                            }
+                        }
+
                         ?>
 
                         <li class="list-group-item d-flex justify-content-between">
                             <span>Total (€)</span>
                             <strong><?php echo "$total €"; ?> </strong>
                         </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Total with promo code (€)</span>
+                            <strong><?php echo "$totalPromo €"; ?> </strong>
+                        </li>
                     </ul>
 
-                    <!-- <form class="card p-2">
+                    <form class="card p-2" action="checkout.php" method="POST">
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Promo code">
-                            <button type="submit" class="btn btn-secondary">Redeem</button>
+                            <input type="text" class="form-control" name="userPromoCode" placeholder="Promo code">
+                            <button type="submit" name="reedem" class="btn btn-secondary">Redeem</button>
                         </div>
-                    </form> -->
+                    </form>
+
                 </div>
                 <div class="col-md-7 col-lg-8">
                     <h4 class="mb-3">Billing address</h4>
@@ -76,7 +100,8 @@ include("connect.php");
                         <div class="row g-3">
                             <div class="col-sm-6">
                                 <label for="firstName" class="form-label">First name</label>
-                                <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+                                <input type="text" class="form-control" id="firstName" name="firstName" placeholder=""
+                                    value="" required>
                                 <div class="invalid-feedback">
                                     Valid first name is required.
                                 </div>
@@ -84,7 +109,8 @@ include("connect.php");
 
                             <div class="col-sm-6">
                                 <label for="lastName" class="form-label">Last name</label>
-                                <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+                                <input type="text" class="form-control" name="lastName" id="lastName" placeholder=""
+                                    value="" required>
                                 <div class="invalid-feedback">
                                     Valid last name is required.
                                 </div>
@@ -93,7 +119,8 @@ include("connect.php");
                             <div class="col-12">
                                 <label for="email" class="form-label">Email <span
                                         class="text-muted">(Optional)</span></label>
-                                <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                                <input type="email" class="form-control" name="email" id="email"
+                                    placeholder="you@example.com">
                                 <div class="invalid-feedback">
                                     Please enter a valid email address for shipping updates.
                                 </div>
@@ -101,8 +128,8 @@ include("connect.php");
 
                             <div class="col-12">
                                 <label for="address" class="form-label">Address</label>
-                                <input type="text" class="form-control" id="address" placeholder="1234 Main St"
-                                    required>
+                                <input type="text" class="form-control" name="address" id="address"
+                                    placeholder="1234 Main St" required>
                                 <div class="invalid-feedback">
                                     Please enter your shipping address.
                                 </div>
@@ -110,7 +137,7 @@ include("connect.php");
 
                             <div class="col-md-5">
                                 <label for="country" class="form-label">Country</label>
-                                <select class="form-select" id="country" required>
+                                <select class="form-select" name="country" id="country" required>
                                     <option value="">Choose...</option>
                                     <option>United States</option>
                                     <option>Europe</option>
@@ -123,7 +150,7 @@ include("connect.php");
 
                             <div class="col-md-4">
                                 <label for="state" class="form-label">State</label>
-                                <select class="form-select" id="state" required>
+                                <select class="form-select" name="state" id="state" required>
                                     <option value="">Choose...</option>
                                     <option>SLovakia</option>
                                     <option>Poland</option>
@@ -136,7 +163,8 @@ include("connect.php");
 
                             <div class="col-md-3">
                                 <label for="zip" class="form-label">Zip</label>
-                                <input type="text" class="form-control" id="zip" placeholder="" required>
+                                <input type="text" class="form-control" name="postal_code" id="zip" placeholder=""
+                                    required>
                                 <div class="invalid-feedback">
                                     Zip code required.
                                 </div>
@@ -212,11 +240,18 @@ include("connect.php");
                     </form>
                 </div>
                 <?php
-                /*  Send data to database*/
+                /*  Sending data to database  */
                 if (isset($_POST['finish_button'])) {
+                    $firstName = $_POST['firstName'];
+                    $lastName = $_POST['lastName'];
+                    $email = $_POST['email'];
+                    $address = $_POST['address'];
+                    $country = $_POST['country'];
+                    $state = $_POST['state'];
+                    $postal_code = $_POST['postal_code'];
 
-                    $sql = "INSERT INTO orders (price_€) 
-                    VALUES ('$total')";
+                    $sql = "INSERT INTO orders (price_€, first_name,last_name,email,address,country,state,postal_code) 
+                    VALUES ('$total', '$firstName', '$lastName', '$email', '$address','$country', '$state', '$postal_code')";
 
                     if (mysqli_query($conn, $sql)) {
                         /* echo "New record created successfully"; */
@@ -226,7 +261,6 @@ include("connect.php");
 
                     mysqli_close($conn);
                 }
-
 
 
                 ?>

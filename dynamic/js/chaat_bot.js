@@ -16,6 +16,7 @@ for (let i = 0; i < coll.length; i++) {
     });
 }
 
+// Function to get time
 function getTime() {
     let today = new Date();
     hours = today.getHours();

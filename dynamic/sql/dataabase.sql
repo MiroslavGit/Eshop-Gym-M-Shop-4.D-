@@ -51,7 +51,23 @@ insert into password (id, password)  values (1, 'protein');
 
 create table orders (
 	id INT (11) NOT NULL auto_increment,
-	price_€ int (11),
+	first_name varchar(32) NOT NULL,
+	last_name varchar(32) NOT NULL,
+	email varchar(64) NOT NULL,
+	address varchar(128) NOT NULL,
+	country varchar(32) NOT NULL,
+	state varchar(32) NOT NULL,
+	postal_code varchar(32) NOT NULL,
+	price_€ double (5,2),
 	date TIMESTAMP,
 	primary key(id)
 );
+
+create table coupons (
+	id INT (11) NOT NULL auto_increment,
+	coupnon_name varchar(32) NOT NULL,
+	primary key(id)
+);
+
+insert into coupons (id, coupnon_name)  values (1, 'MIRO20');
+insert into coupons (id, coupnon_name)  values (2, 'CODE20');

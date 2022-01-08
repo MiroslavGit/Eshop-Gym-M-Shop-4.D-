@@ -33,8 +33,9 @@ include "pwd_validation.php";
                     style='color:black; text-align:center; font-size: 1rem; background-color: orange; border-radius: 60px; width: 150px; margin-left: -25%;margin-bottom: 10%;  '>
                     Back </p>
             </a>
-            <?php
 
+            <?php
+            /* Checking if password is correct from password from database, if yes open boss.php */
             if (isset($_POST["submit"])) {
                 $userInput = $_POST['password'];
                 if ($userInput == $password[0]) {

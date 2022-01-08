@@ -19,6 +19,7 @@
             <i class="fa fa-envelope fa-fw"></i> Contact
         </a>
     </li>
+    <!-- Print number of products into navigation -->
     <?php
     if (isset($_SESSION['cart'])) {
         $poc = count($_SESSION['cart']);

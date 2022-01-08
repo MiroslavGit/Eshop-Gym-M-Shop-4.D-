@@ -28,7 +28,7 @@ include("data.php");
         </div>
 
         <div class="row">
-
+            <!-- Print all products -->
             <?php
             foreach ($names as $value => $name) {
                 echo '<div class="col-md-3 col-sm-6">';

@@ -96,7 +96,7 @@ include("functions.php")
 
 
 
-                // ak nie sú žiadne chyby, zobrazíme rekapituláciu
+                // if no errors, show results 
                 if (empty($chyby)) {
                     echo "First name: $firstName<br>";
                     echo "Last Name: $lastName<br>";

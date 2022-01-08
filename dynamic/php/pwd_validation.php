@@ -1,3 +1,4 @@
+<!-- Getting password from database -->
 <?php
 include "connect.php";
 
