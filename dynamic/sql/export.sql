@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hostiteľ: 127.0.0.1
--- Čas generovania: Št 06.Jan 2022, 18:05
+-- Čas generovania: So 08.Jan 2022, 19:23
 -- Verzia serveru: 10.4.22-MariaDB
 -- Verzia PHP: 8.1.1
 
@@ -20,6 +20,25 @@ SET time_zone = "+00:00";
 --
 -- Databáza: `gymm_shop`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Štruktúra tabuľky pre tabuľku `coupons`
+--
+
+CREATE TABLE `coupons` (
+  `id` int(11) NOT NULL,
+  `coupnon_name` varchar(32) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Sťahujem dáta pre tabuľku `coupons`
+--
+
+INSERT INTO `coupons` (`id`, `coupnon_name`) VALUES
+(1, 'MIRO20'),
+(2, 'CODE20');
 
 -- --------------------------------------------------------
 
@@ -80,7 +99,14 @@ INSERT INTO `employees` (`id`, `first_name`, `last_name`, `age`, `gender`, `heig
 
 CREATE TABLE `orders` (
   `id` int(11) NOT NULL,
-  `price_€` int(11) DEFAULT NULL,
+  `first_name` varchar(32) NOT NULL,
+  `last_name` varchar(32) NOT NULL,
+  `email` varchar(64) NOT NULL,
+  `address` varchar(128) NOT NULL,
+  `country` varchar(32) NOT NULL,
+  `state` varchar(32) NOT NULL,
+  `postal_code` varchar(32) NOT NULL,
+  `price_€` double(5,2) DEFAULT NULL,
   `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -88,8 +114,10 @@ CREATE TABLE `orders` (
 -- Sťahujem dáta pre tabuľku `orders`
 --
 
-INSERT INTO `orders` (`id`, `price_€`, `date`) VALUES
-(1, 98, '2022-01-06 17:05:03');
+INSERT INTO `orders` (`id`, `first_name`, `last_name`, `email`, `address`, `country`, `state`, `postal_code`, `price_€`, `date`) VALUES
+(2, 'Miroslav', 'Hanisko', 'miroslav2022@gmail.com', 'Jánovce- Machalovce 17', 'United States', 'SLovakia', '05913', 25.90, '2022-01-07 23:43:16'),
+(3, 'Miroslav', 'Hanisko', 'miroslav2022@gmail.com', 'Jánovce- Machalovce 17', 'United States', 'SLovakia', '05913', 25.90, '2022-01-07 23:43:44'),
+(4, 'Miroslav', 'Hanisko', 'miroslav2022@gmail.com', 'Jánovce- Machalovce 17', 'Europe', 'SLovakia', '05913', 33.40, '2022-01-08 16:40:09');
 
 -- --------------------------------------------------------
 
@@ -114,6 +142,12 @@ INSERT INTO `password` (`id`, `password`) VALUES
 --
 
 --
+-- Indexy pre tabuľku `coupons`
+--
+ALTER TABLE `coupons`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexy pre tabuľku `employees`
 --
 ALTER TABLE `employees`
@@ -136,6 +170,12 @@ ALTER TABLE `password`
 --
 
 --
+-- AUTO_INCREMENT pre tabuľku `coupons`
+--
+ALTER TABLE `coupons`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT pre tabuľku `employees`
 --
 ALTER TABLE `employees`
@@ -145,7 +185,7 @@ ALTER TABLE `employees`
 -- AUTO_INCREMENT pre tabuľku `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pre tabuľku `password`
